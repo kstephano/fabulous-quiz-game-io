@@ -19,6 +19,11 @@ const io = require("socket.io")(server, {
   cors: { origin: ["https://fabulous-quiz-game.netlify.app"] },
 });
 
+// root welcome message
+server.get("/", (req, res) =>
+  res.send("Welcome to the Fabulous Quiz Game IO server!")
+);
+
 io.on("connection", (socket) => {
   console.log("socket connected");
   socket.emit("connected", "socket is connected");
