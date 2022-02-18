@@ -16,7 +16,10 @@ const {
 const app = require("express")();
 const server = require("http").createServer(app);
 const io = require("socket.io")(server, {
-  cors: { origin: ["https://fabulous-quiz-game.netlify.app"] },
+  cors: {
+    origin: ["https://fabulous-quiz-game.netlify.app"],
+    methods: ["GET", "POST", "PATCH", "DELETE"],
+  },
 });
 
 io.on("connection", (socket) => {
